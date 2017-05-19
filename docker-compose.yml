@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+    http-server:
+      image: nginx:1.13.0
+      volumes:
+        - ${install_path}:/var/application
+        - ./nginx-custom/nginx.conf:/etc/nginx/conf.d/default.conf
+      links:
+        - worker
+
+    worker:
+      build: php-fpm-custom
+      working_dir: /var/application/sylius
+      volumes:
+        - ${install_path}:/var/application/sylius
+        - ./php-fpm-custom/php.ini:/usr/local/etc/php/php.ini
+      links:
+        - db
+
+    db:
+      image: mariadb:10.1
+      env_file:
+        - ./mariadb-custom/setup.env
