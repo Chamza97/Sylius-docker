@@ -4,6 +4,7 @@
 You should install [docker](https://docs.docker.com/engine/installation) and [docker compose](https://docs.docker.com/compose/install/) before using this repo to setup Sylius environment.
 
 ### Deploy environment
+edit the location of 
 ```sh
 docker-compose up
 ```

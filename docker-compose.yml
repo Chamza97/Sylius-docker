@@ -4,7 +4,7 @@ services:
     http-server:
       image: nginx:1.13.0
       volumes:
-        - ${install_path}:/var/application
+        - ${install_path}:/var/application/sylius
         - ./nginx-custom/nginx.conf:/etc/nginx/conf.d/default.conf
       links:
         - worker

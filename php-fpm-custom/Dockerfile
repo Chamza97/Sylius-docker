@@ -18,7 +18,8 @@ RUN docker-php-ext-configure \
 RUN docker-php-ext-install \
     exif \
     gd \
-    intl
+    intl \
+    pdo_mysql
 
 #install composer
 RUN curl https://getcomposer.org/installer  \
