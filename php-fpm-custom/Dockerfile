@@ -24,3 +24,13 @@ RUN docker-php-ext-install \
 #install composer
 RUN curl https://getcomposer.org/installer  \
     | php -- --filename=composer --install-dir=/bin
+
+#install gulp
+RUN apt-get install -y \
+    npm \
+    && npm install n -g \
+    && n stable \
+    && npm install yarn -g
+
+
+RUN apt-get install -y nano
