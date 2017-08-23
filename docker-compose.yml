@@ -14,6 +14,7 @@ services:
       working_dir: /var/application/sylius
       volumes:
         - ${install_path}:/var/application/sylius
+#        - /home/ahmed/projects/CatalogPromotion:/var/application/sylius/vendor/snake-tn/catalog-promotion-plugin
         - ./php-fpm-custom/php.ini:/usr/local/etc/php/php.ini
       links:
         - db
