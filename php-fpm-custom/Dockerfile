@@ -21,9 +21,16 @@ RUN docker-php-ext-install \
     intl \
     pdo_mysql
 
+#setup user access
+RUN usermod -u 1000 www-data
+
+RUN chown -R /var/www
+
 #install composer
 RUN curl https://getcomposer.org/installer  \
     | php -- --filename=composer --install-dir=/bin
+
+RUN composer config --global repo.packagist composer https://packagist.org
 
 #install gulp
 RUN apt-get install -y \
