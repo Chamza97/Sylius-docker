@@ -2,7 +2,7 @@ version: '3'
 
 services:
     http-server:
-      image: nginx:1.13.0
+      build: nginx-custom
       volumes:
         - ${install_path}/${project_name}:/var/application/${project_name}
         - ./nginx-custom/nginx.conf:/etc/nginx/conf.d/default.conf
@@ -13,7 +13,7 @@ services:
       build: php-fpm-custom
       working_dir: /var/application/${project_name}
       volumes:
-        - ${install_path}:/var/application/sylius
+        - ${install_path}/${project_name}:/var/application/${project_name}
         - ./php-fpm-custom/php.ini:/usr/local/etc/php/php.ini
       links:
         - db
